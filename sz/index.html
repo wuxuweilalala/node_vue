@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'arraybuffer';
+    xhr.open('GET', "sz_Level_7.tif");
+    xhr.onload = function(e) {
+        var tiff = new Tiff({ buffer: xhr.response });
+        var canvas = tiff.toCanvas();
+        document.body.append(canvas);
+    };
+    xhr.send()
+</script>
+
+</html>
